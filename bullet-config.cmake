@@ -16,12 +16,15 @@ list(APPEND libraries
   )
 
 if (MINGW)
-  foreach (lib IN libraries)
+  foreach (lib IN LISTS libraries)
     target_link_libraries(${CURRENT_TARGET} "${lib_dir}/${lib}.a")
   endforeach ()
 elseif (MSVC)
   set(DEBUG_SUFFIX _Debug)
-  target_link_libraries(${CURRENT_TARGET} "${lib_dir}/${lib}${DEBUG_SUFFIX}.lib")
+
+  foreach (lib IN LISTS libraries)
+    target_link_libraries(${CURRENT_TARGET} "${lib_dir}/${lib}${DEBUG_SUFFIX}.lib")
+  endforeach (lib)
 else ()
   message(FATAL_ERROR "Platform support not yet implemented.")
 endif ()
