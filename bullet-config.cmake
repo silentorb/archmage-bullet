@@ -17,7 +17,7 @@ list(APPEND libraries
 
 if (MINGW)
   foreach (lib IN LISTS libraries)
-    target_link_libraries(${CURRENT_TARGET} "${lib_dir}/${lib}.a")
+    target_link_libraries(${CURRENT_TARGET} "${lib_dir}/lib${lib}.a")
   endforeach ()
 elseif (MSVC)
   set(DEBUG_SUFFIX _Debug)
@@ -29,4 +29,4 @@ else ()
   message(FATAL_ERROR "Platform support not yet implemented.")
 endif ()
 
-include_directories(${CMAKE_CURRENT_LIST_DIR}/bin/${GENERATOR_KEY}/include)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/bin/${GENERATOR_KEY}/include/bullet)
