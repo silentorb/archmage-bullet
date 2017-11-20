@@ -8,8 +8,8 @@ list(APPEND libraries
   Bullet3Dynamics
   Bullet3Geometry
   #  Bullet3OpenCL_clew
-  BulletCollision
   BulletDynamics
+  BulletCollision
   BulletInverseDynamics
   BulletSoftBody
   LinearMath
